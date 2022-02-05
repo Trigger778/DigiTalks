@@ -1,5 +1,6 @@
+const req = require('express/lib/request');
 const User = require('../models/user');
-
+const msgs =require('../models/message');
 // let's keep it same as before
 module.exports.profile = function(req, res){
     User.findById(req.params.id, function(err, user){
@@ -62,7 +63,8 @@ module.exports.create = function(req, res){
         if (!user){
             User.create(req.body, function(err, user){
                 if(err){req.flash('error', err); return}
-
+                  
+                msgs[`${req.body.name}`]=[];
                 return res.redirect('/users/sign-in');
             })
         }else{

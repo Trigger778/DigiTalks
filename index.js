@@ -23,6 +23,7 @@ const customMware = require('./config/middleware');
 const Post  = require('./models/post');
 const Comments  = require('./models/comment');
 const User  = require('./models/user');
+const msgs =require('../models/message');
 /*app.use(sassMiddleware({
     src: './assets/scss',
     dest: './assets/css',
@@ -79,7 +80,7 @@ app.use(flash());
 app.use(customMware.setFlash);
 
 // use express router
-const msgs=[];
+
 User.find({},function(err,user){
    user.map(ele=>{
       msgs[`${ele.name}`]=[];
