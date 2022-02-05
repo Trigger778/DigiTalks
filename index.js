@@ -23,7 +23,7 @@ const customMware = require('./config/middleware');
 const Post  = require('./models/post');
 const Comments  = require('./models/comment');
 const User  = require('./models/user');
-const msgs =require('../models/message');
+const msgs =require('./models/message');
 /*app.use(sassMiddleware({
     src: './assets/scss',
     dest: './assets/css',
