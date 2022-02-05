@@ -1,0 +1,103 @@
+
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://use.fontawesome.com/8e03119bdf.js"></script>
+        <style>
+            #styling{
+               border:1px solid black;
+               border-radius: 10px;
+               text-align: center;
+               width: 150px;
+               background-color: dodgerblue;
+               margin: auto;
+               margin-top: 10px;
+               line-height: 48px;
+            }
+            #user-friends :hover{
+                background-color:hotpink;
+            }
+        </style>
+    </head>
+    <link rel="stylesheet" href="/css/home.css">
+    
+<body>
+<div id="home-container">
+    <section id="feed-posts">
+        <% if(locals.user){ %>
+                <h4>Posts</h4>
+            <form action="/posts/create" id="new-post-form" method="POST">
+                <textarea style="border-radius: 8px;" name="content" cols="30" rows="3" placeholder="What's on your Mind? <%= locals.user.name%>" required></textarea>
+                <input style="background-color: lightblue;" type="submit" value="Post">
+            </form>
+         
+        
+            <div id="posts-list-container">
+                <ul>
+                    <% for(post of posts){ %>
+                        
+                    <%- include('_post') -%>
+                        
+                    <%} %>
+                </ul>
+            </div>
+        </section>
+   
+
+        <section id="user-friends" style="background-color:lightblue;">
+            <h4>Register User</h4>
+            <% for(u of all_users){%>
+                <p id="styling">
+             <a style="text-decoration: none;" href="/users/profile/<%= u.id %>"><%= u.name %></a>
+                </p>
+            <% } %>
+        </section>
+</div>
+<% } else { %>
+
+<div class="part">
+    
+<div class ="Homepage"> 
+    <span class="fa-stack fa-lg">
+        <i class="fa fa-circle-thin fa-stack-2x"></i>
+        <i class="fa fa-twitter fa-stack-1x"></i>
+      </span>
+     <h1 style ="font-style:inherit; color: aqua;font-size: 80px;">DigiTalks</h1>
+    <h3>DigiTalks helps you connect and share with the people in your life.</h3>
+</div>
+<div id="Log-in">  
+    
+    <div id="Apka" <h1 style="text-align: center;color:darkblue">Hey! There Wanna Try DigiTalks</h1>
+<form action="/users/create-session" method="POST">
+    <div >
+    <input style="width: 320px;border-radius: 6px;height: 50px; margin-top: 20px;" type="email" name="email" placeholder="Email"  required>
+    </div>
+    <div >
+    <input style="width: 320px;border-radius: 6px;height: 50px;margin-top: 20px;"type="password" name="password" placeholder="Password"  required>
+    </div>
+    <div >
+   <input style="color: white;width: 340px;border-radius: 6px;height: 50px;background-color: #1877f2;
+    border: none;
+    font-size: 20px;
+    line-height: 48px;
+    padding: 0 16px;margin-top: 20px;" type="submit" value="LogIn">
+    </div>
+    <h1><a style="color: white;border-radius: 6px;height: 50px;background-color: #1877f2;
+        border: solid;
+        box-shadow: #1877f2;
+        font-size: 20px;
+        line-height: 48px;
+        padding: 0 16px;margin-top: 20px;margin-left:auto;border:1px solid black;background-color:rgba(39, 175, 39, 0.644);text-decoration-line: none;" href="/users/sign-up">Create New Account</a></h1>
+   
+</form>
+</div>
+</div>
+</div>
+<% } %>
+
+<!-- importing this script for creating the comments -->
+<script src="/js/home_post_comments.js" ></script>
+<script src="/js/home_posts.js"></script>
+</body>
+</html>
+

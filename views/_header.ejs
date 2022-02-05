@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://use.fontawesome.com/8e03119bdf.js"></script>
+</head>
+
+<body>
+
+<header id="layout-header">
+    <nav>
+        <div class="mini-logo">
+            <p>
+                <a href='/'>
+                   <h2><span class="fa-stack fa-lg">
+                    <i class="fa fa-circle-thin fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x"></i>
+                  </span> DigiTalks </h2>
+                </a>
+            </p>
+        </div>
+    
+        <div class="auth-links">
+            <ul>
+                <% if (locals.user){ %>
+                <li>
+                   <h2><a href="/users/profile/<%= user.id %>"><%= user.name %></a></h2>
+                </li>
+                <li>
+                   <h2> <a href="/">Feeds</a> </h2>
+                </li>
+                <li>
+                <h2><a href="/chats?id=<%=user.name%>">Chats</a></h2>
+                </li>
+                <li>
+                   <h2><a href="/users/sign-out">SignOut</a></h2>
+                </li>
+                <% }else{ %>
+                <li>
+                   <h2> <a href="/About">About</a> </h2>
+                </li>
+                <li>
+                    <h2> <a href="/users/sign-up">SignUp</a> </h2>
+                 </li>
+        
+                <% } %>
+            </ul>
+        </div>
+    </nav>
+ 
+
+
+</header>
+</body>
+</html>

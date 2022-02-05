@@ -1,0 +1,39 @@
+#home-container {
+  display: flex; 
+
+}
+  #home-container #feed-posts {
+    width: 70%;
+    padding: 10px;
+   }
+  #home-container #user-friends {
+    text-align: center;
+    width: 30%;
+    padding: 10px;
+    border: 2px solid lightgrey;
+    height: 750px; }
+    .homepage{
+      text-align: center;
+      margin-top: 150px;
+    }
+    #Log-in{
+      display: flex;
+      flex-direction: row;
+      margin-top: 250px;
+      margin-left: auto;
+      width: 42px;
+    }
+    .part{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+    #Apka{
+      border: 1px solid black;
+      border-radius: 20px;
+      background-color:azure;
+      box-shadow: 10px 10px lightblue;
+      ;
+    }
+  
